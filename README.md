@@ -34,7 +34,13 @@ class CounterCubit extends Cubit<int> {
   CounterCubit() : super(0);
 
   void increment() async => emit(
-        await compute((int c) => c + 1, state),
+        await compute(
+          (int c) {
+            sleep(const Duration(seconds: 1));
+            return c + 1;
+          },
+          state,
+        ),
       );
 
   void decrement() async => emit(
