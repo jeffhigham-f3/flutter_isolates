@@ -8,7 +8,7 @@ import 'dart:isolate';
 
 ```dart
 void _uselessCounter(int start) {
-  var count = 0;
+  var count = start;
   while (true) {
     sleep(
       const Duration(
