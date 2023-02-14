@@ -28,3 +28,18 @@ void _uselessCounter(int start) {
     Isolate.spawn(_uselessCounter, 0);
   }
 ```
+
+```dart
+class CounterCubit extends Cubit<int> {
+  CounterCubit() : super(0);
+
+  void increment() async => emit(
+        await compute((int c) => c + 1, state),
+      );
+
+  void decrement() async => emit(
+        await compute((int c) => c - 1, state),
+      );
+}
+
+```
